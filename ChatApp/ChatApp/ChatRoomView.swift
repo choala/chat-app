@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ChatRoomView: View {
-    @State private var inputBubble: String = ""
-    @State private var bubbles: [String] = []
+    @State private var inputMessage: String = ""
+    @State private var messages: [String] = []
     
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(bubbles, id: \.self) { bubble in
-                    Text(bubble)
+                ForEach(messages, id: \.self) { message in
+                    BubbleView(message: message)
                 }
             }
             
             HStack {
-                TextField("메시지를 입력하세요.", text: $inputBubble)
+                TextField("메시지를 입력하세요.", text: $inputMessage)
                 Button {
-                    bubbles.append(inputBubble)
-                    inputBubble = ""
+                    messages.append(inputMessage)
+                    inputMessage = ""
                 } label: {
                     Text("전송")
                 }
