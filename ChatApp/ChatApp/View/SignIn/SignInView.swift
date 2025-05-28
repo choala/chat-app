@@ -14,6 +14,9 @@ struct SignInView: View {
     var body: some View {
         TextField("email", text: $email)
         TextField("password", text: $password)
+        
+        AuthButton(title: "로그인")
+            .padding()
     }
 }
 
