@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+/// Auth 관련 뷰에서 사용되는 공통 버튼
 struct AuthButton: View {
     let title: String
+    let action: () -> Void
     
     var body: some View {
         Button {
@@ -23,8 +25,4 @@ struct AuthButton: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
-}
-
-#Preview {
-    AuthButton(title: "로그인")
 }

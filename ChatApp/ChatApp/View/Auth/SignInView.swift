@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+    
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -15,11 +17,13 @@ struct SignInView: View {
         TextField("email", text: $email)
         TextField("password", text: $password)
         
-        AuthButton(title: "로그인")
-            .padding()
+        AuthButton(title: "로그인") {
+            authViewModel.signIn(email: email, password: password)
+        }
+        .padding()
     }
 }
 
 #Preview {
-    SignInView()
+    SignInView(authViewModel: AuthViewModel())
 }

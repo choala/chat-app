@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var authViewModel: AuthViewModel
+    
     var body: some View {
         TabView {
             Tab("Friend", systemImage: "person") {
@@ -26,5 +28,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(authViewModel: AuthViewModel())
 }
