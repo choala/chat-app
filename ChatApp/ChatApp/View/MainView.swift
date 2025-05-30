@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var authViewModel: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         TabView {
@@ -28,5 +28,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(authViewModel: AuthViewModel())
+    MainView()
 }

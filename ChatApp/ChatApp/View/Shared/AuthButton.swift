@@ -14,7 +14,7 @@ struct AuthButton: View {
     
     var body: some View {
         Button {
-            print(title)
+            action()
         } label: {
             Text(title)
                 .font(.headline)

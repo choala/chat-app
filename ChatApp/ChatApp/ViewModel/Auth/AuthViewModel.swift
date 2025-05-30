@@ -10,6 +10,7 @@ import FirebaseAuth
 /// Auth 관련 처리를 위한 ViewModel
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     init() {
@@ -34,7 +35,7 @@ class AuthViewModel: ObservableObject {
     }
     
     /// 로그인 처리 함수
-    func signIn(email: String, password: String) -> Void {
+    func signIn(email: String, password: String) async {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
           // ...
