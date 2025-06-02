@@ -22,7 +22,7 @@ struct AuthButton: View {
                 .padding()
                 .background(.black)
                 .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 30))
         }
     }
 }

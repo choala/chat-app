@@ -14,7 +14,7 @@ struct SignInView: View {
     @State private var email: String = ""
     /// 패스워드 입력을 위한 @State 변수
     @State private var password: String = ""
-    /// 회원가입 뷰로 전환을 위한 @State 변수
+    /// 회원가입 뷰 전환을 위한 @State 변수
     @State private var isSignUpClicked: Bool = false
     
     var body: some View {
