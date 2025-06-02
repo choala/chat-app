@@ -27,7 +27,7 @@ struct SignInView: View {
             }
             .padding()
             .navigationDestination(isPresented: $authViewModel.isLoggedIn) {
-                MainView()
+                MainTabView()
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainTabView.swift
 //  ChatApp
 //
 //  Created by 박채영 on 1/15/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
@@ -28,5 +28,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainTabView()
 }

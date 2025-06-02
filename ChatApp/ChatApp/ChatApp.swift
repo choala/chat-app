@@ -29,7 +29,7 @@ struct ChatApp: App {
         WindowGroup {
             // 로그인 상태에 따라 분기
             if authViewModel.isLoggedIn {
-                MainView()
+                MainTabView()
                     .environmentObject(authViewModel)
             } else {
                 SignInView()
