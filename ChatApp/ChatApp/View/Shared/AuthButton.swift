@@ -20,9 +20,15 @@ struct AuthButton: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.black)
+                .background(Color.bubbleColor)
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
         }
+    }
+}
+
+#Preview {
+    AuthButton(title: "로그인") {
+        
     }
 }

@@ -18,25 +18,30 @@ struct SignInView: View {
     @State private var isSignUpClicked: Bool = false
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                TextField("email", text: $email)
-                TextField("password", text: $password)
-                
-                AuthButton(title: "로그인") {
-                    authViewModel.signIn(email: email, password: password)
+        ZStack {
+            Color(Color.backgroundColor)
+                .ignoresSafeArea()
+            
+            NavigationStack {
+                VStack {
+                    TextField("email", text: $email)
+                    TextField("password", text: $password)
+                    
+                    AuthButton(title: "로그인") {
+                        authViewModel.signIn(email: email, password: password)
+                    }
+                    
+                    AuthButton(title: "회원가입") {
+                        isSignUpClicked = true
+                    }
                 }
-                
-                AuthButton(title: "회원가입") {
-                    isSignUpClicked = true
+                .padding()
+                .navigationDestination(isPresented: $authViewModel.isLoggedIn) {
+                    MainTabView()
                 }
-            }
-            .padding()
-            .navigationDestination(isPresented: $authViewModel.isLoggedIn) {
-                MainTabView()
-            }
-            .navigationDestination(isPresented: $isSignUpClicked) {
-                SignUpView()
+                .navigationDestination(isPresented: $isSignUpClicked) {
+                    SignUpView()
+                }
             }
         }
     }
