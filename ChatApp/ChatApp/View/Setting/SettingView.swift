@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SettingView: View {
+    /// Auth 뷰 모델 변수
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AuthButton(title: "로그아웃") {
+            authViewModel.signOut()
+        }
     }
 }
 

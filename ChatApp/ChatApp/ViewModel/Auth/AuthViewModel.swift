@@ -35,10 +35,19 @@ class AuthViewModel: ObservableObject {
     }
     
     /// 로그인 처리 함수
-    func signIn(email: String, password: String) async {
+    func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
           // ...
+        }
+    }
+    
+    /// 로그아웃 처리 함수
+    func signOut() {
+        do {
+            let result = try Auth.auth().signOut()
+        } catch {
+            
         }
     }
 }

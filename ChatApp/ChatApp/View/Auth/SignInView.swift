@@ -22,9 +22,7 @@ struct SignInView: View {
                 TextField("password", text: $password)
                 
                 AuthButton(title: "로그인") {
-                    Task {
-                        await authViewModel.signIn(email: email, password: password)
-                    }
+                    authViewModel.signIn(email: email, password: password)
                 }
             }
             .padding()
