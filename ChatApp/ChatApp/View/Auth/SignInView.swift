@@ -25,7 +25,10 @@ struct SignInView: View {
             NavigationStack {
                 VStack {
                     TextField("email", text: $email)
+                        .textFieldStyle(AuthTextFieldStyle())
+                    
                     TextField("password", text: $password)
+                        .textFieldStyle(AuthTextFieldStyle())
                     
                     AuthButton(title: "로그인") {
                         authViewModel.signIn(email: email, password: password)
