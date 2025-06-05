@@ -29,6 +29,7 @@ struct SignInView: View {
                     
                     TextField("password", text: $password)
                         .textFieldStyle(AuthTextFieldStyle())
+                        .padding(.bottom, 30)
                     
                     AuthButton(title: "로그인") {
                         authViewModel.signIn(email: email, password: password)
