@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Auth 관련 TextField에서 사용되는 공통 스타일
 struct AuthTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         ZStack {

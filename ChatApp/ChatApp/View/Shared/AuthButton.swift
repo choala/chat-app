@@ -9,9 +9,11 @@ import SwiftUI
 
 /// Auth 관련 뷰에서 사용되는 공통 버튼
 struct AuthButton: View {
+    // MARK: - Properties
     let title: String
     let action: () -> Void
     
+    // MARK: - Body
     var body: some View {
         Button {
             action()
@@ -24,11 +26,5 @@ struct AuthButton: View {
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
         }
-    }
-}
-
-#Preview {
-    AuthButton(title: "로그인") {
-        
     }
 }

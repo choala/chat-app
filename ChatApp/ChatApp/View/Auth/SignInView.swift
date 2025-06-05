@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// 로그인 뷰
 struct SignInView: View {
+    // MARK: - Properties
     /// Auth 뷰 모델 변수
     @EnvironmentObject var authViewModel: AuthViewModel
     /// 이메일 입력을 위한 @State 변수
@@ -17,6 +19,7 @@ struct SignInView: View {
     /// 회원가입 뷰 전환을 위한 @State 변수
     @State private var isSignUpClicked: Bool = false
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color(Color.backgroundColor)
