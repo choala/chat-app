@@ -28,9 +28,11 @@ struct SignInView: View {
             NavigationStack {
                 VStack {
                     TextField("email", text: $email)
+                        .textInputAutocapitalization(.never)
                         .textFieldStyle(AuthTextFieldStyle())
                     
-                    TextField("password", text: $password)
+                    SecureField("password", text: $password)
+                        .textInputAutocapitalization(.never)
                         .textFieldStyle(AuthTextFieldStyle())
                         .padding(.bottom, 30)
                     

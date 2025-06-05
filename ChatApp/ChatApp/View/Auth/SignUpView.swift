@@ -9,8 +9,44 @@ import SwiftUI
 
 /// 회원가입 뷰
 struct SignUpView: View {
+    // MARK: - Properties
+    /// Auth 뷰 모델 변수
+    @EnvironmentObject var authViewModel: AuthViewModel
+    /// 이메일 입력을 위한 @State 변수
+    @State private var email: String = ""
+    /// 패스워드 입력을 위한 @State 변수
+    @State private var password: String = ""
+    
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(Color.backgroundColor)
+                .ignoresSafeArea()
+            
+            NavigationStack {
+                VStack(alignment: .leading) {
+                    Text("이메일")
+                        .font(.subheadline)
+                    TextField("email", text: $email)
+                        .textInputAutocapitalization(.never)
+                        .textFieldStyle(AuthTextFieldStyle())
+                        .padding(.bottom, 30)
+                    
+                    Text("비밀번호")
+                        .font(.subheadline)
+                    SecureField("password", text: $password)
+                        .textInputAutocapitalization(.never)
+                        .textFieldStyle(AuthTextFieldStyle())
+                    
+                    Spacer()
+                    
+                    AuthButton(title: "회원가입") {
+                        authViewModel.signUp(email: email, password: password)
+                    }
+                }
+                .padding()
+            }
+        }
     }
 }
 

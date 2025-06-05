@@ -36,9 +36,11 @@ class AuthViewModel: ObservableObject {
     
     /// 로그인 처리 함수
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
-          // ...
+        if !email.isEmpty && !password.isEmpty {
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                guard let strongSelf = self else { return }
+                // ...
+            }
         }
     }
     
