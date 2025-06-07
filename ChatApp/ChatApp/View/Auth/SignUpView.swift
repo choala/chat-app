@@ -12,8 +12,8 @@ struct SignUpView: View {
     // MARK: - Properties
     /// Auth 뷰 모델 변수
     @EnvironmentObject var authViewModel: AuthViewModel
-    /// 사용자 이름 입력을 위한 @State 변수
-    @State private var username: String = ""
+    /// 사용자 닉네임 입력을 위한 @State 변수
+    @State private var nickname: String = ""
     /// 이메일 입력을 위한 @State 변수
     @State private var email: String = ""
     /// 패스워드 입력을 위한 @State 변수
@@ -27,9 +27,10 @@ struct SignUpView: View {
             
             NavigationStack {
                 VStack(alignment: .leading) {
-                    Text("이름")
+                    // TODO: 닉네임, 이메일 중복 확인
+                    Text("닉네임")
                         .font(.subheadline)
-                    TextField("name", text: $username)
+                    TextField("nickname", text: $nickname)
                         .textInputAutocapitalization(.never)
                         .textFieldStyle(AuthTextFieldStyle())
                         .padding(.bottom, 30)
@@ -41,6 +42,7 @@ struct SignUpView: View {
                         .textFieldStyle(AuthTextFieldStyle())
                         .padding(.bottom, 30)
                     
+                    // TODO: 비밀번호 숨김 해제 버튼 추가
                     Text("비밀번호")
                         .font(.subheadline)
                     SecureField("password", text: $password)
@@ -54,7 +56,7 @@ struct SignUpView: View {
                             await authViewModel.signUp(
                                 email: email,
                                 password: password,
-                                username: username
+                                nickname: nickname
                             )
                         }
                     }

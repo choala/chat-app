@@ -37,7 +37,12 @@ struct SignInView: View {
                         .padding(.bottom, 30)
                     
                     AuthButton(title: "로그인") {
-                        authViewModel.signIn(email: email, password: password)
+                        Task {
+                            await authViewModel.signIn(
+                                email: email,
+                                password: password
+                            )
+                        }
                     }
                     
                     AuthButton(title: "회원가입") {
