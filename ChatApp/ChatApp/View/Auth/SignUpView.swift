@@ -12,6 +12,8 @@ struct SignUpView: View {
     // MARK: - Properties
     /// Auth 뷰 모델 변수
     @EnvironmentObject var authViewModel: AuthViewModel
+    /// 사용자 이름 입력을 위한 @State 변수
+    @State private var username: String = ""
     /// 이메일 입력을 위한 @State 변수
     @State private var email: String = ""
     /// 패스워드 입력을 위한 @State 변수
@@ -25,6 +27,13 @@ struct SignUpView: View {
             
             NavigationStack {
                 VStack(alignment: .leading) {
+                    Text("이름")
+                        .font(.subheadline)
+                    TextField("name", text: $username)
+                        .textInputAutocapitalization(.never)
+                        .textFieldStyle(AuthTextFieldStyle())
+                        .padding(.bottom, 30)
+                    
                     Text("이메일")
                         .font(.subheadline)
                     TextField("email", text: $email)
@@ -41,7 +50,13 @@ struct SignUpView: View {
                     Spacer()
                     
                     AuthButton(title: "회원가입") {
-                        authViewModel.signUp(email: email, password: password)
+                        Task {
+                            await authViewModel.signUp(
+                                email: email,
+                                password: password,
+                                username: username
+                            )
+                        }
                     }
                 }
                 .padding()

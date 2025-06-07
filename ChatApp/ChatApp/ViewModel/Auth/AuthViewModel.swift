@@ -6,11 +6,15 @@
 //
 
 import FirebaseAuth
+import FirebaseFirestore
 
 /// Auth 관련 처리를 위한 ViewModel
 class AuthViewModel: ObservableObject {
+    /// 로그인 여부를 나타내는 @Published 변수
     @Published var isLoggedIn: Bool = false
-    
+    /// Firestore 변수
+    let db = Firestore.firestore()
+    /// Auth 상태 변화 리스너를 처리하기 위한 변수
     var handle: AuthStateDidChangeListenerHandle?
     
     init() {
@@ -28,9 +32,17 @@ class AuthViewModel: ObservableObject {
     }
     
     /// 회원가입 처리 함수
-    func signUp(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-          // ...
+    func signUp(email: String, password: String, username: String) async {
+        do {
+            let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
+            let user = authResult.user
+            
+            try await db.collection("users").document(user.uid).setData([
+                "uid": user.uid,
+                "username": username
+            ])
+        } catch {
+            print("Error: \(error.localizedDescription)")
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F15CE9C2DF40FAF008B4F30 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F15CE9B2DF40FAF008B4F30 /* FirebaseFirestore */; };
 		2F5EAE572D89B6EE003E2107 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5EAE562D89B6EE003E2107 /* FirebaseAuth */; };
 		2F5EAE592D89B6F1003E2107 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5EAE582D89B6F1003E2107 /* FirebaseCore */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 			files = (
 				2F5EAE592D89B6F1003E2107 /* FirebaseCore in Frameworks */,
 				2F5EAE572D89B6EE003E2107 /* FirebaseAuth in Frameworks */,
+				2F15CE9C2DF40FAF008B4F30 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +131,7 @@
 			packageProductDependencies = (
 				2F5EAE562D89B6EE003E2107 /* FirebaseAuth */,
 				2F5EAE582D89B6F1003E2107 /* FirebaseCore */,
+				2F15CE9B2DF40FAF008B4F30 /* FirebaseFirestore */,
 			);
 			productName = ChatApp;
 			productReference = 2F0FF19A2D33D96700367101 /* ChatApp.app */;
@@ -585,6 +588,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F15CE9B2DF40FAF008B4F30 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F5EAE542D899EE6003E2107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		2F5EAE562D89B6EE003E2107 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F5EAE542D899EE6003E2107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
