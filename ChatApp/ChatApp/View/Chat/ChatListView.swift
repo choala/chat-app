@@ -1,5 +1,5 @@
 //
-//  ChatRoomView.swift
+//  ChatListView.swift
 //  ChatApp
 //
 //  Created by 박채영 on 1/12/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatRoomView: View {
+struct ChatListView: View {
     @State private var inputMessage: String = ""
     @State private var messages: [String] = []
     
@@ -35,5 +35,5 @@ struct ChatRoomView: View {
 }
 
 #Preview {
-    ChatRoomView()
+    ChatListView()
 }

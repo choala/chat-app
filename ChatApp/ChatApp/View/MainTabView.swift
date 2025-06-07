@@ -17,11 +17,11 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             Tab("Friend", systemImage: "person") {
-                FriendListView()
+                FollowListView()
             }
             
             Tab("Chat", systemImage: "bubble") {
-                ChatRoomView()
+                ChatListView()
             }
             
             Tab("Setting", systemImage: "gearshape") {

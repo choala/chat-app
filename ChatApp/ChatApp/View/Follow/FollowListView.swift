@@ -1,5 +1,5 @@
 //
-//  FriendListView.swift
+//  FollowListView.swift
 //  ChatApp
 //
 //  Created by 박채영 on 1/15/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FriendListView: View {
+struct FollowListView: View {
     var body: some View {
         List {
             Text("")
@@ -16,5 +16,5 @@ struct FriendListView: View {
 }
 
 #Preview {
-    FriendListView()
+    FollowListView()
 }
